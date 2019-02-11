@@ -1,0 +1,36 @@
+{
+  "name": "tencent-ai-sign",
+  "version": "0.0.1",
+  "description": "tencent ai open platform sign tool with typescript",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CheeYeah/tencent-ai-sign.git"
+  },
+  "keywords": [
+    "tencent",
+    "tencent-ai",
+    "tencent-ai-sign",
+    "typescript",
+    "jsapi"
+  ],
+  "author": "aye",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CheeYeah/tencent-ai-sign/issues"
+  },
+  "homepage": "https://github.com/CheeYeah/tencent-ai-sign#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "ts-md5": "^1.2.4"
+  }
+}
