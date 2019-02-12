@@ -6,8 +6,8 @@ function createNonceStr() {
     .substr(2, 15);
 }
 
-function createTimestamp() {
-  return parseInt((new Date().getTime() / 1000).toString());
+function createTimestamp(): number {
+  return parseInt((new Date().getTime() / 1000).toString(), 0);
 }
 
 /**
@@ -20,33 +20,35 @@ function createTimestamp() {
 function raw(args: any): string {
   let keys = Object.keys(args);
   keys = keys.sort();
-  let newArgs: any = {};
-  keys.forEach(function(key) {
+  const newArgs: any = {};
+  keys.forEach((key) => {
     newArgs[key] = args[key];
   });
 
-  let string = "";
-  for (var k in newArgs) {
-    string += "&" + k + "=" + encodeURI(newArgs[k]);
+  let str = "";
+  for (const k in newArgs) {
+    if (k) {
+      str += "&" + k + "=" + encodeURI(newArgs[k]);
+    }
   }
-  string = string.substr(1);
-  return string;
+  str = str.substr(1);
+  return str;
 }
 
-export function sign(params: any, app_id: number, app_key: string) {
-  let ret = {
+export function sign(params: any, appId: number, appKey: string) {
+  const ret = {
     ...{
-      app_id: app_id,
+      app_id: appId,
       nonce_str: createNonceStr(),
-      time_stamp: createTimestamp()
+      time_stamp: createTimestamp(),
     },
-    ...params
+    ...params,
   };
-  let string = raw(ret);
-  string += "&" + "app_key=" + app_key;
-  const sign = Md5.hashStr(string)
+  let str = raw(ret);
+  str += "&" + "app_key=" + appKey;
+  const md5Sign = Md5.hashStr(str)
     .toString()
     .toUpperCase();
-  ret.sign = sign;
+  ret.sign = md5Sign;
   return ret;
 }

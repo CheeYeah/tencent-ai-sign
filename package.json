@@ -1,6 +1,6 @@
 {
-  "name": "tencent-ai-sign",
-  "version": "0.0.1",
+  "name": "tencent-ai-sign-ts",
+  "version": "0.1.0",
   "description": "tencent ai open platform sign tool with typescript",
   "main": "index.js",
   "scripts": {
