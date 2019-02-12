@@ -3,11 +3,11 @@
 
 ## 安装
 ```
-npm install tencent-ai-sign
+npm install tencent-ai-sign-ts
 ```
 ## 使用
 ```
-import sign from 'tencent-ai-sign'
+import sign from 'tencent-ai-sign-ts'
 sign(params, app_id, app_key)
 ```
 返回
